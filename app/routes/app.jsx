@@ -19,6 +19,7 @@ export const loader = async ({ request }) => {
 }
 
 export default function App() {
+  // @ts-ignore
   const { polarisTranslations } = useLoaderData();
 
   return (

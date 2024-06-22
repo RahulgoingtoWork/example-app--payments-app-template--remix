@@ -4,8 +4,21 @@ import {
   CalloutCard,
   Link,
 } from "@shopify/polaris";
+import { ethers } from "ethers";
 
 export default function Welcome() {
+
+  const handleClick = async () => {
+
+    try {
+      // @ts-ignore
+      await window.ethereum.request({ method: "eth_requestAccounts" });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
   return (
     <CalloutCard
       title="Congrats on creating a new Shopify payments app 💸 🎉"
@@ -27,6 +40,7 @@ export default function Welcome() {
         <Text as="p">
           The linked dashboard shows the stored refund sessions - both resolved and new.
         </Text>
+        <button onClick={handleClick}>hi</button>
       </BlockStack>
     </CalloutCard>
   )
